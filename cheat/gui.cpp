@@ -200,12 +200,12 @@ void gui::BeginRender() noexcept
 	{
 		TranslateMessage(&message);
 		DispatchMessage(&message);
-	}
 
-	if (message.wParam == WM_QUIT)
-	{
-		exit = false;
-		return;
+		if (message.message == WM_QUIT)
+		{
+			exit = !exit;
+			return;
+		}
 	}
 
 	// Start the Dear ImGui frame
