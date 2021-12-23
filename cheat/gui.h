@@ -11,7 +11,7 @@ namespace gui
 
 	// winapi window vars
 	inline HWND window = nullptr;
-	inline WNDCLASSEXA windowClass = { };
+	inline WNDCLASSEX windowClass = { };
 
 	// points for window movement
 	inline POINTS position = { };
@@ -22,9 +22,7 @@ namespace gui
 	inline D3DPRESENT_PARAMETERS presentParameters = { };
 
 	// handle window creation & destruction
-	void CreateHWindow(
-		const char* windowName,
-		const char* className) noexcept;
+	void CreateHWindow(const char* windowName) noexcept;
 	void DestroyHWindow() noexcept;
 
 	// handle device creation & destruction
