@@ -9,7 +9,7 @@ int __stdcall wWinMain(
 	int commandShow)
 {
 	// create gui
-	gui::CreateHWindow("Cheat Menu", "Cheat Menu Class");
+	gui::CreateHWindow("Cheat Menu");
 	gui::CreateDevice();
 	gui::CreateImGui();
 
