@@ -72,14 +72,12 @@ long __stdcall WindowProcess(
 
 	}
 
-	return DefWindowProcW(window, message, wideParameter, longParameter);
+	return DefWindowProc(window, message, wideParameter, longParameter);
 }
 
-void gui::CreateHWindow(
-	const char* windowName,
-	const char* className) noexcept
+void gui::CreateHWindow(const char* windowName) noexcept
 {
-	windowClass.cbSize = sizeof(WNDCLASSEXA);
+	windowClass.cbSize = sizeof(WNDCLASSEX);
 	windowClass.style = CS_CLASSDC;
 	windowClass.lpfnWndProc = WindowProcess;
 	windowClass.cbClsExtra = 0;
@@ -89,13 +87,14 @@ void gui::CreateHWindow(
 	windowClass.hCursor = 0;
 	windowClass.hbrBackground = 0;
 	windowClass.lpszMenuName = 0;
-	windowClass.lpszClassName = className;
+	windowClass.lpszClassName = "class001";
 	windowClass.hIconSm = 0;
 
-	RegisterClassExA(&windowClass);
+	RegisterClassEx(&windowClass);
 
-	window = CreateWindowA(
-		className,
+	window = CreateWindowEx(
+		0,
+		"class001",
 		windowName,
 		WS_POPUP,
 		100,
@@ -201,6 +200,12 @@ void gui::BeginRender() noexcept
 	{
 		TranslateMessage(&message);
 		DispatchMessage(&message);
+	}
+
+	if (message.wParam == WM_QUIT)
+	{
+		exit = false;
+		return;
 	}
 
 	// Start the Dear ImGui frame
