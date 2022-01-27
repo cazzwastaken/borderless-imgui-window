@@ -8,6 +8,7 @@ Make an ImGui cheat menu tutorial [video](https://www.youtube.com/watch?v=Nrta_J
 - Clone the repo
 - Customize menu to your liking
 - Build in Release | x86
+- Find your binary in the `Release` folder
 - Enjoy
 
 ## 🗿 Disclaimer
