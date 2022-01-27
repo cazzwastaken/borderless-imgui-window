@@ -7,7 +7,9 @@ namespace gui
 	constexpr int WIDTH = 500;
 	constexpr int HEIGHT = 300;
 
-	inline bool exit = true;
+	// when this changes, exit threads
+	// and close menu :)
+	inline bool isRunning = true;
 
 	// winapi window vars
 	inline HWND window = nullptr;

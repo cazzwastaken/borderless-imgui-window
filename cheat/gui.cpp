@@ -203,7 +203,7 @@ void gui::BeginRender() noexcept
 
 		if (message.message == WM_QUIT)
 		{
-			exit = !exit;
+			isRunning = !isRunning;
 			return;
 		}
 	}
@@ -244,7 +244,7 @@ void gui::Render() noexcept
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
 	ImGui::Begin(
 		"subscribe to cazzy",
-		&exit,
+		&isRunning,
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoSavedSettings |
 		ImGuiWindowFlags_NoCollapse |
