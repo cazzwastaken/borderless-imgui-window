@@ -1,42 +1,53 @@
 #pragma once
-#include <d3d9.h>
+#include <string_view>
+#include <d3d11.h>
 
-namespace gui
-{
-	// constant window size
-	constexpr int WIDTH = 500;
-	constexpr int HEIGHT = 300;
+namespace gui {
+    // constant window size (logical pixels)
+    constexpr int WIDTH = 500;
+    constexpr int HEIGHT = 300;
 
-	// when this changes, exit threads
-	// and close menu :)
-	inline bool isRunning = true;
+    // Configuration flags
+    inline bool isDPIAware = true;
+    inline bool vSyncEnabled = true;
 
-	// winapi window vars
-	inline HWND window = nullptr;
-	inline WNDCLASSEX windowClass = { };
+    // when this changes, exit threads
+    // and close menu :)
+    inline bool isRunning = true;
 
-	// points for window movement
-	inline POINTS position = { };
+    // winapi window vars
+    inline HWND window = nullptr;
+    inline WNDCLASSEX windowClass = {};
 
-	// direct x state vars
-	inline PDIRECT3D9 d3d = nullptr;
-	inline LPDIRECT3DDEVICE9 device = nullptr;
-	inline D3DPRESENT_PARAMETERS presentParameters = { };
+    // points for window movement
+    inline POINTS position = {};
 
-	// handle window creation & destruction
-	void CreateHWindow(const char* windowName) noexcept;
-	void DestroyHWindow() noexcept;
+    // direct x state vars
+    inline ID3D11Device* device = nullptr;
+    inline ID3D11DeviceContext* deviceContext = nullptr;
+    inline IDXGISwapChain* swapChain = nullptr;
+    inline ID3D11RenderTargetView* mainRenderTargetView = nullptr;
 
-	// handle device creation & destruction
-	bool CreateDevice() noexcept;
-	void ResetDevice() noexcept;
-	void DestroyDevice() noexcept;
+    // DPI scaling factor
+    inline float dpiScale = 1.0f;
 
-	// handle ImGui creation & destruction
-	void CreateImGui() noexcept;
-	void DestroyImGui() noexcept;
+    // handle window creation & destruction
+    void CreateHWindow(std::wstring_view title);
+    void DestroyHWindow() noexcept;
 
-	void BeginRender() noexcept;
-	void EndRender() noexcept;
-	void Render() noexcept;
-}
+    // handle device creation & destruction
+    bool CreateDevice() noexcept;
+    void DestroyDevice() noexcept;
+
+    // handle render target creation & destruction
+    void CreateRenderTarget() noexcept;
+    void DestroyRenderTarget() noexcept;
+
+    // handle ImGui creation & destruction
+    void CreateImGui() noexcept;
+    void DestroyImGui() noexcept;
+
+    void BeginRender() noexcept;
+    void EndRender() noexcept;
+    void Render() noexcept;
+}  // namespace gui

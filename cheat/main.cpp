@@ -2,30 +2,29 @@
 
 #include <thread>
 
-int __stdcall wWinMain(
-	HINSTANCE instance,
-	HINSTANCE previousInstance,
-	PWSTR arguments,
-	int commandShow)
-{
-	// create gui
-	gui::CreateHWindow("Cheat Menu");
-	gui::CreateDevice();
-	gui::CreateImGui();
+int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE previousInstance, PWSTR arguments,
+        int commandShow) {
+    // Configure settings before creating window
+    gui::isDPIAware = true;
+    gui::vSyncEnabled = true;
 
-	while (gui::isRunning)
-	{
-		gui::BeginRender();
-		gui::Render();
-		gui::EndRender();
+    // create gui
+    gui::CreateHWindow(L"Cheat Menu");
+    gui::CreateDevice();
+    gui::CreateImGui();
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(5));
-	}
+    while (gui::isRunning) {
+        gui::BeginRender();
+        gui::Render();
+        gui::EndRender();
 
-	// destroy gui
-	gui::DestroyImGui();
-	gui::DestroyDevice();
-	gui::DestroyHWindow();
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    }
 
-	return EXIT_SUCCESS;
+    // destroy gui
+    gui::DestroyImGui();
+    gui::DestroyDevice();
+    gui::DestroyHWindow();
+
+    return EXIT_SUCCESS;
 }
