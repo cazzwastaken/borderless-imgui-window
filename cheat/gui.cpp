@@ -4,12 +4,10 @@
 #include "../imgui/imgui_impl_dx11.h"
 #include "../imgui/imgui_impl_win32.h"
 
-extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND window, UINT message,
-                                                             WPARAM wideParameter,
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND window, UINT message, WPARAM wideParameter,
                                                              LPARAM longParameter);
 
-LRESULT __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter,
-                                LPARAM longParameter) {
+LRESULT __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter, LPARAM longParameter) {
     if (ImGui_ImplWin32_WndProcHandler(window, message, wideParameter, longParameter))
         return true;
 
@@ -22,15 +20,14 @@ LRESULT __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter,
             // Resize window according to suggested rect
             const RECT* suggestedRect = (RECT*)longParameter;
             SetWindowPos(window, nullptr, suggestedRect->left, suggestedRect->top,
-                         suggestedRect->right - suggestedRect->left,
-                         suggestedRect->bottom - suggestedRect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+                         suggestedRect->right - suggestedRect->left, suggestedRect->bottom - suggestedRect->top,
+                         SWP_NOZORDER | SWP_NOACTIVATE);
 
             // Recreate render target with new size
             if (gui::device) {
                 gui::DestroyRenderTarget();
                 gui::swapChain->ResizeBuffers(0, suggestedRect->right - suggestedRect->left,
-                                              suggestedRect->bottom - suggestedRect->top,
-                                              DXGI_FORMAT_UNKNOWN, 0);
+                                              suggestedRect->bottom - suggestedRect->top, DXGI_FORMAT_UNKNOWN, 0);
                 gui::CreateRenderTarget();
             }
         }
@@ -39,8 +36,8 @@ LRESULT __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter,
         case WM_SIZE: {
             if (gui::device && wideParameter != SIZE_MINIMIZED) {
                 gui::DestroyRenderTarget();
-                gui::swapChain->ResizeBuffers(0, (UINT)LOWORD(longParameter),
-                                              (UINT)HIWORD(longParameter), DXGI_FORMAT_UNKNOWN, 0);
+                gui::swapChain->ResizeBuffers(0, (UINT)LOWORD(longParameter), (UINT)HIWORD(longParameter),
+                                              DXGI_FORMAT_UNKNOWN, 0);
                 gui::CreateRenderTarget();
             }
         }
@@ -114,8 +111,8 @@ void gui::CreateHWindow(std::wstring_view title) {
     const int scaledWidth = static_cast<int>(WIDTH * dpiScale);
     const int scaledHeight = static_cast<int>(HEIGHT * dpiScale);
 
-    window = CreateWindowEx(0, windowClass.lpszClassName, title.data(), WS_POPUP, 100, 100,
-                            scaledWidth, scaledHeight, 0, 0, windowClass.hInstance, 0);
+    window = CreateWindowEx(0, windowClass.lpszClassName, title.data(), WS_POPUP, 100, 100, scaledWidth, scaledHeight,
+                            0, 0, windowClass.hInstance, 0);
 
     ShowWindow(window, SW_SHOWDEFAULT);
     UpdateWindow(window);
@@ -149,9 +146,9 @@ bool gui::CreateDevice() noexcept {
         D3D_FEATURE_LEVEL_11_0,
         D3D_FEATURE_LEVEL_10_0,
     };
-    if (D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags,
-                                      featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &swapChain,
-                                      &device, &featureLevel, &deviceContext) != S_OK)
+    if (D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags, featureLevelArray, 2,
+                                      D3D11_SDK_VERSION, &sd, &swapChain, &device, &featureLevel,
+                                      &deviceContext) != S_OK)
         return false;
 
     CreateRenderTarget();
@@ -247,8 +244,8 @@ void gui::Render() noexcept {
     ImGui::SetNextWindowPos({0, 0});
     ImGui::SetNextWindowSize({WIDTH * dpiScale, HEIGHT * dpiScale});
     ImGui::Begin("imgui borderless window", &isRunning,
-                 ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings |
-                     ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove);
+                 ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse |
+                     ImGuiWindowFlags_NoMove);
 
     ImGui::Text("youtube.com/@cazz");
     ImGui::Button("subscribe");

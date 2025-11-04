@@ -1,0 +1,36 @@
+#
+# cazz's clang format.
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+#
+
+---
+
+# The following style is for C++.
+Language: Cpp
+
+BasedOnStyle: Google
+IndentWidth: 4
+
+# Prefer left aligned pointers & references.
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Google's column width is tiny by defualt.
+ColumnLimit: 120
+
+# Stop condensing short things to a single line.
+AllowShortIfStatementsOnASingleLine: Never 
+AllowShortFunctionsOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
+
+# Add the comments after each namespace.
+FixNamespaceComments: true
+
+NamespaceIndentation: All # None, Inner or All
+IndentExternBlock: Indent # Indent, NoIndent
+
+SortIncludes: Never # Never, CaseSensitive, CaseInsensitive
+
+AccessModifierOffset: -4 # integer
+---
+

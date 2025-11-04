@@ -2,8 +2,7 @@
 
 #include <thread>
 
-int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE previousInstance, PWSTR arguments,
-        int commandShow) {
+int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE previousInstance, PWSTR arguments, int commandShow) {
     // Configure settings before creating window
     gui::isDPIAware = true;
     gui::vSyncEnabled = true;
