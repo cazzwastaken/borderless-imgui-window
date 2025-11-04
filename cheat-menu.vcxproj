@@ -155,26 +155,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cheat\gui.h" />
-    <ClInclude Include="imgui\imconfig.h" />
-    <ClInclude Include="imgui\imgui.h" />
-    <ClInclude Include="imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="imgui\imgui_impl_win32.h" />
-    <ClInclude Include="imgui\imgui_internal.h" />
-    <ClInclude Include="imgui\imstb_rectpack.h" />
-    <ClInclude Include="imgui\imstb_textedit.h" />
-    <ClInclude Include="imgui\imstb_truetype.h" />
+    <ClInclude Include="src\gui.h" />
+    <ClInclude Include="external\imgui-legacy\imconfig.h" />
+    <ClInclude Include="external\imgui-legacy\imgui.h" />
+    <ClInclude Include="external\imgui-legacy\imgui_impl_dx11.h" />
+    <ClInclude Include="external\imgui-legacy\imgui_impl_win32.h" />
+    <ClInclude Include="external\imgui-legacy\imgui_internal.h" />
+    <ClInclude Include="external\imgui-legacy\imstb_rectpack.h" />
+    <ClInclude Include="external\imgui-legacy\imstb_textedit.h" />
+    <ClInclude Include="external\imgui-legacy\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cheat\gui.cpp" />
-    <ClCompile Include="cheat\main.cpp" />
-    <ClCompile Include="imgui\imgui.cpp" />
-    <ClCompile Include="imgui\imgui_demo.cpp" />
-    <ClCompile Include="imgui\imgui_draw.cpp" />
-    <ClCompile Include="imgui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="imgui\imgui_tables.cpp" />
-    <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_demo.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_draw.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_impl_dx11.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_impl_win32.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_tables.cpp" />
+    <ClCompile Include="external\imgui-legacy\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TODO.md" />

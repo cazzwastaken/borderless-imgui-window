@@ -9,5 +9,5 @@ if(WIN32)
     add_compile_definitions(UNICODE _UNICODE)
 endif()
 
-add_subdirectory(imgui)
-add_subdirectory(cheat)
+add_subdirectory(external/imgui-legacy)
+add_subdirectory(src)
