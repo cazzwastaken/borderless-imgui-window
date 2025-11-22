@@ -1,15 +1,63 @@
-﻿# 🛰 About
-A very clean external, borderless ImGui project written as a YouTube tutorial.
+﻿# 🛰 Borderless Window
 
-## 🌠 Video
-Make an ImGui cheat menu tutorial [video](https://www.youtube.com/watch?v=Nrta_J_c9Cc) here
+A clean, simple and portable *Borderless [ImGui](https://github.com/ocornut/imgui) Window* template ready for your desktop menu/application needs - built with C++20 and running DirectX 11.
 
-## 🌌 Setup
-- Clone the repo
-- Customize menu to your liking
-- Build in Release | x86
-- Find your binary in the `Release` folder
-- Enjoy
+![Example Screenshot](data/cheat-menu-example.gif)
+
+## 🌠 About
+
+This project was developed during one of my tutorials on YouTube a few years ago:
+
+- [Make a Proper Menu with ImGUI](https://www.youtube.com/watch?v=Nrta_J_c9Cc)
+
+It was originally designed as an external cheat menu/base for CS:GO, but can easily be used for any purpose you want. I have updated it to use DirectX 11 instead of DirectX 9, which makes it compatible with more modern applications.
+
+> [!NOTE]
+> If you're looking for the original version from the video, you can find it in the [DirectX 9](https://github.com/cazzwastaken/borderless-imgui-window/tree/directx9) of this repository. Keep in mind that DirectX 9 is now deprecated and no longer comes pre-installed on Windows as of version 11.
+
+## 🌌 Getting Started
+
+The only platform supported by this branch is Windows, since we are relying on DirectX 11, which is a Windows specific API. To get started make sure you have the following prerequisites installed:
+
+- **MSVC** (v143 or later for C++20 support) - [Download Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- **Windows SDK** (v10.0 or later) - [Download Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/)
+- [optional] **CMake** (v3.20 or later) for using VSCode or other IDEs - [Download CMake](https://cmake.org/download/)
+- [optional] **Git** for cloning the repository - [Download Git](https://git-scm.com/downloads)
+
+> Intalling Visual Studio with the "Desktop development with C++" workload will cover most of these requirements.
+
+Clone the repository:
+
+```bash
+# Either download the ZIP or use Git:
+git clone https://github.com/cazzwastaken/borderless-imgui-window.git
+cd borderless-imgui-window
+```
+
+Follow one of the build methods below:
+
+**Visual Studio:**
+
+1. Open `cheat-menu.sln` in Visual Studio
+2. Select `Release` or `Debug` configuration
+3. Build the solution (Ctrl + Shift + B)
+
+**CMake:**
+
+```bash
+mkdir build && cd build
+cmake ..
+cmake --build . --config Release
+```
 
 ## 🗿 Disclaimer
-I am not responsible for anything that happens when you use this software. Cheers.
+
+This software is provided as-is for educational purposes only. I am not responsible for anything that you do or that happens to you when using this software. Be safe and have fun!
+
+## 🏝️ Contributing
+
+Interested in contributing? Check out the [CONTRIBUTING.md](CONTRIBUTING.md) guide for development setup and guidelines.
+
+## 🪐 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
