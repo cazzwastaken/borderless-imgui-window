@@ -6,20 +6,18 @@ A clean, simple and portable *Borderless [ImGui](https://github.com/ocornut/imgu
 
 ## 🌠 About
 
-This project was developed during one of my (awesome) tutorials on YouTube a few years ago:
+This project was developed during one of my tutorials on YouTube a few years ago:
 
 - [Make a Proper Menu with ImGUI](https://www.youtube.com/watch?v=Nrta_J_c9Cc)
 
 It was originally designed as an external cheat menu/base for CS:GO, but can easily be used for any purpose you want. I have updated it to use DirectX 11 instead of DirectX 9, which makes it compatible with more modern applications.
 
 > [!NOTE]
-> If you're looking for the original DirectX 9 version from the video, you can find it in the [original branch](https://github.com/cazzwastaken/borderless-imgui-window/tree/original) of this repository. Keep in mind that DirectX 9 is now deprecated and no longer comes pre-installed on Windows.
+> If you're looking for the original version from the video, you can find it in the [DirectX 9](https://github.com/cazzwastaken/borderless-imgui-window/tree/directx9) of this repository. Keep in mind that DirectX 9 is now deprecated and no longer comes pre-installed on Windows as of version 11.
 
 ## 🌌 Getting Started
 
-The only platform currently supported is Windows as it relies on DirectX and Win32 APIs. I am considering future UNIX support, but it is not a priority and greatly increases complexity.
-
-Make sure you have the following prerequisites installed:
+The only platform supported by this branch is Windows, since we are relying on DirectX 11, which is a Windows specific API. To get started make sure you have the following prerequisites installed:
 
 - **MSVC** (v143 or later for C++20 support) - [Download Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - **Windows SDK** (v10.0 or later) - [Download Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/)
